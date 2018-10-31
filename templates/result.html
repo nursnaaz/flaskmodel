@@ -1,0 +1,52 @@
+<style>
+        input[type="text"] {
+        height: 100px;
+        width: 800px;
+        }
+    </style>
+<!doctype html>
+<html>
+<style>
+table {
+    width:100%;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+</style>
+   <body>
+        <form action = "/result" method = "POST">
+            <p><h1>Mail Data: </h1>  <input type = "text" name = "Name" value="{{name}}" rows="10" cols="30" />
+            <br>
+            {% if language=="en" %}    
+            <div>Loading the result from <b>English Gaming Data Model</b></div>
+            {% endif %} 
+            {% if language=="fr" %}
+            <div>Loading the result from <b>French Sound and Headset Data Model</b>    </div>
+            {% endif %}
+            <br>
+            <h2>Fetch nearest :</h2> <select name="top">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4">4</option>
+               <option value="5">5</option> 
+             </select></p>
+            <p><input type = "submit" value = "submit" /></p>
+         </form>
+         <br>
+   <table>
+	  {% for item in result %}
+  <tr>
+    <td>{{ item }}</td>
+  </tr>
+{% endfor %}
+  </table>
+      
+   </body>
+</html>
